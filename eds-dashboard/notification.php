@@ -1,0 +1,1 @@
+<?php $notification = array('check_date'=>'20201203','date'=>'20200814','status'=>'1','link'=>'https://warehouse.easyphp.org/inventory-devserver?s=not20200814','message'=>'New module : WordPress 5.5','link_text'=>'DOWNLOAD'); ?>

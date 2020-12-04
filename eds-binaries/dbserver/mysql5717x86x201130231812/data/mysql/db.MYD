@@ -1,0 +1,10 @@
+ÿ%                                                                                                                                                                                   test                                                                                                                                                                                                                                            ÿ%                                                                                                                                                                                   test\_%                                                                                                                                                                                                                                         ÿ127.0.0.1                                                                                                                                                                           phpmyadmin                                                                                                                                                                                      pma                                             2015-09-06 11:12:54 8980 [Note] Event Scheduler: Loaded 0 events
+2015-09-06 11:12:54 8980 [Note] C:\PROGRA~2\EASYPH~1.1VC\binaries\mysql\bin\eds-mysqld.exe: ready for connections.
+Version: '5.6.15-log'  socket: ''  port: 3306  MySQL Community Server (GPL)
+2015-09-06 11:13:51 8980 [Note] C:\PROGRA~2\EASYPH~1.1VC\binaries\mysql\bin\eds-mysqld.exe: Normal shutdown
+
+2015-09-06 11:13:51 8980 [Note] Giving 0 client threads a chance to die gracefully
+2015-09-06 11:13:51 8980 [Note] Event Scheduler: Purging the queue. 0 events
+2015-09-06 11:13:51 8980 [Note] Shutting down slave threads
+2015-09-06 11:13:51 8980 [Note] Forcefully disconnecting 0 remaining clients
+2015-09-06 11:13:51 8980 [Note] Binlog end
