@@ -33,6 +33,14 @@ session_start();
         .form-group {
             margin-top: 30px;
         }
+        input[type="text"], input[type="password"] {
+            border: 0px;
+            padding-left: 45px;
+            padding-right: 45px;
+        }
+        input[type="submit"] {
+            width: 70%;
+        }
     </style>
 </head>
 <body>

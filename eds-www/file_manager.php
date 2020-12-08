@@ -218,10 +218,10 @@ th .indicator {margin-left: 6px }
 thead {border-top: 1px solid #65CEAE; border-bottom: 1px solid #65CEAE;border-left: 1px solid #E7F2FB;
 	border-right: 1px solid #E7F2FB; }
 #top {height:52px;}
-#mkdir {display:inline-block;float:right;padding-top:16px;}
+#mkdir {display:inline-block;float:right;padding-top:9px;}
 label { display:block; font-size:11px; color:#555;}
-#file_drop_target {width:60%; padding:12px 0; border: 4px dashed #ccc;font-size:16px;color:#ccc;
-	text-align: center;float:right;margin-right:20px;}
+#file_drop_target {width:calc(100% - 270px); padding:12px 0; border: 4px dashed #ccc;font-size:16px;color:#ccc;
+	text-align: center;margin-right:20px;}
 #file_drop_target.drag_over {border: 4px dashed #96C4EA; color: #96C4EA;}
 #upload_progress {padding: 4px 0;}
 #upload_progress .error {color:#a00;}
@@ -477,8 +477,8 @@ body {
 <div id="top">
    <?php if($allow_create_folder): ?>
 	<form action="?" method="post" id="mkdir" />
-		<label for=dirname>Create New Folder</label><input id=dirname type=text name=name value="" />
-		<input type="submit" value="create" />
+		<input id=dirname class="form-control" type=text name=name placeholder="New Folder" value="" style="display: inline-block; width: 190px;" />
+		<input type="submit" class="btn btn-outline-primary" value="create" style="height: 35px;margin-bottom: 3px;font-size: 14px;" />
 	</form>
 
    <?php endif; ?>

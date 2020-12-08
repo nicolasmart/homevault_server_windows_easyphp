@@ -18,21 +18,21 @@ require('res/translations/bg.php'); // TODO: Change when switching languages
             -moz-background-size: cover;
             -o-background-size: cover;
             background-size: cover;
-            padding-top: 40px;
+            padding-top: 20px;
             width: 100vw;
             height: 100vh;
         }
         .toolbar { 
-            width: calc(100vw - 124px);
-            margin-left: 62px;
-            margin-right: 62px;
+            width: calc(100vw - 60px);
+            margin-left: 30px;
+            margin-right: 30px;
         }
         .main-wrapper { 
-            width: calc(100vw - 124px);
-            margin-left: 62px;
-            margin-right: 62px;
-            margin-top: 30px;
-            min-height: calc(100vh - 190px);
+            width: calc(100vw - 60px);
+            margin-left: 30px;
+            margin-right: 30px;
+            margin-top: 20px;
+            height: calc(100vh - 150px);
             display: flex;
             flex-flow: column;
         }

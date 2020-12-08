@@ -11,15 +11,19 @@ body {
     background-color: #17A67E;
     border-color: #17A67E;
 }
-.btn-primary:hover {
+.btn-outline-primary {
+    color: #17A67E;
+    border-color: #17A67E;
+}
+.btn-primary:hover, .btn-outline-primary:hover {
     background-color: #187359;
     border-color: #187359;
 }
-.btn-primary:active {
+.btn-primary:active, .btn-outline-primary:active {
     background-color: #187359 !important;
     border-color: #187359 !important;
 }
-.btn-primary:focus {
+.btn-primary:focus, .btn-outline-primary:focus {
     background-color: #187359 !important;
     border-color: #187359 !important;
 }
@@ -54,13 +58,9 @@ body {
     margin-top: 3px;
 }
 input[type="text"], input[type="password"] {
-    border: 0px;
-    padding-left: 45px;
-    padding-right: 45px;
     border-radius: 10px;
 }
 input[type="submit"] {
-    width: 70%;
     border-radius: 100px;
 }
 #file_drop_target {
