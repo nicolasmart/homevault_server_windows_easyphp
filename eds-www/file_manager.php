@@ -67,7 +67,9 @@ if($_POST) {
 		err(403,"XSRF Failure");
 }
 
-$file = $_SESSION['folder_loc'] . '/files' . '/' . $_REQUEST['file'] ?: $_SESSION['folder_loc'] . '/files' . '/.';
+$file = strpos($_REQUEST['file'], $_SESSION['folder_loc'] . '/') !== false ? $_REQUEST['file'] : $_SESSION['folder_loc'] . '/files' . '/' . $_REQUEST['file'];
+if (substr($file, 0, strlen($_SESSION['folder_loc'] . '/')) !== $_SESSION['folder_loc'] . '/') 
+	err(403,"Forbidden");
 
 if($_GET['do'] == 'list') {
 	if (is_dir($file)) {
@@ -101,6 +103,11 @@ if($_GET['do'] == 'list') {
 	echo json_encode(['success' => true, 'is_writable' => is_writable($file), 'results' =>$result]);
 	exit;
 } elseif ($_POST['do'] == 'delete') {
+	if($allow_delete) {
+		rmrf($file);
+	}
+	exit;
+} elseif ($_GET['do'] == 'delete') {
 	if($allow_delete) {
 		rmrf($file);
 	}
