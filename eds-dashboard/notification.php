@@ -1,0 +1,1 @@
+<?php $notification = array('check_date'=>'20210306','date'=>'20210204','status'=>'1','link'=>'https://warehouse.easyphp.org/inventory-devserver?s=not20210204','message'=>'PHP update : 8.0.2 x86/x64 with Xdebug 3.0.2','link_text'=>'DOWNLOAD'); ?>
