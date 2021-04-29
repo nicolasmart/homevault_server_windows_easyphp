@@ -1,14 +1,15 @@
 <?php
 include 'common_vars.inc';
-require('res/translations/bg.php'); // TODO: Change when switching languages
+if(!isset($_COOKIE["language"])) setcookie("language", "en", time() + (86400 * 365), "/");
+require('res/translations/' . $_COOKIE["language"] . '.php');
 ?>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>HomeVault</title>
-    <!-- TODO: Switch to local instead of CDN cause Seray would be mad otherwise; 
-         TODO 2: Add a common header -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- TODO: Add a common header -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="res/stylesheets/bootstrap.min.css"> 
     <link rel="stylesheet" href="res/stylesheets/main.css?v=3">
@@ -222,7 +223,12 @@ var color_tag_bg = "";
 var selected_item = "";
 var must_delete = "0";
 $(document).ready(function() {
-    parent.showIframe();
+    try {
+      parent.showIframe();
+    }
+    catch (exception_var) {
+      return;
+    }
 });
 $(function(){
   $('.note').click(function(){
@@ -283,7 +289,8 @@ $(function(){
       $('#note_dialog').modal('hide');
       $('#note_creation_dialog_title').text('<?php echo $messages['edit_note']; ?>');
       $('#note-name').val($('#note_dialog_title').text());
-      $('#note-text').val($('.note_content').show().html());
+      var note_text = $('.note_content').show().html();
+      $('#note-text').val(note_text.substr(0, note_text.lastIndexOf('<br>')));
       must_delete="1";
       $('#note_creation_dialog').modal('show');
   });
