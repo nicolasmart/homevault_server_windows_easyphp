@@ -1,6 +1,9 @@
 <?php
 include 'common_vars.inc';
-if(!isset($_COOKIE["language"])) setcookie("language", "en", time() + (86400 * 365), "/");
+if(!isset($_COOKIE["language"])) { 
+  setcookie("language", "en", time() + (86400 * 365), "/");
+  $_COOKIE["language"] = "en";
+}
 require('res/translations/' . $_COOKIE["language"] . '.php');
 ?>
 <!DOCTYPE html>
@@ -9,7 +12,6 @@ require('res/translations/' . $_COOKIE["language"] . '.php');
     <meta charset="UTF-8">
     <title>HomeVault</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- TODO: Add a common header -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="res/stylesheets/bootstrap.min.css"> 
     <link rel="stylesheet" href="res/stylesheets/main.css?v=3">
@@ -115,10 +117,6 @@ else if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] != true) {
 <div class="wrapper">
 <?php
 $GLOBALS['notes_dir'] = $notes_dir = $_SESSION['folder_loc'] . '/notes' . '/';
-/**$files = glob($notes_dir + '/*.{jpg,png,gif,jpeg}', GLOB_BRACE);
-usort($files, function($a, $b) {
-    return filemtime($b) - filemtime($a);
-});*/
 $exts = array('mn');
 
 $files = array();
@@ -133,7 +131,6 @@ if($handle = opendir($notes_dir)) {
     }
     closedir($handle);
 }
-//echo json_encode($files);
 usort($files, function($x, $y) {
     return filemtime($GLOBALS['notes_dir'] . '/' . $x) < filemtime($GLOBALS['notes_dir'] . '/' . $y);
 });

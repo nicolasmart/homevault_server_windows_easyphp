@@ -4,7 +4,10 @@ if (!file_exists('common_vars.inc')) {
     exit;
 }
 include 'common_vars.inc';
-if(!isset($_COOKIE["language"])) setcookie("language", "en", time() + (86400 * 365), "/");
+if(!isset($_COOKIE["language"])) { 
+    setcookie("language", "en", time() + (86400 * 365), "/");
+    $_COOKIE["language"] = "en";
+}
 require('res/translations/' . $_COOKIE["language"] . '.php');
 ?>
 <!DOCTYPE html>
@@ -12,8 +15,7 @@ require('res/translations/' . $_COOKIE["language"] . '.php');
 <head>
     <meta charset="UTF-8">
     <title><?php echo $messages['home_files']; ?> - HomeVault</title>
-    <!-- TODO: Switch to local instead of CDN cause Seray would be mad otherwise; 
-         TODO 2: Add a common header -->
+    <link rel="shortcut icon" type="image/x-icon" href="res/drawables/favicon.ico"/>
     <link rel="stylesheet" href="res/stylesheets/bootstrap.min.css"> 
     <link rel="stylesheet" href="res/stylesheets/main.css?v=5">
     <style type="text/css">
@@ -66,8 +68,9 @@ require('res/translations/' . $_COOKIE["language"] . '.php');
 <?php
 session_start();
 
-if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] != true) {
+if (!isset($_SESSION["logged_in"]) || empty($_SESSION["logged_in"]) || $_SESSION['logged_in'] != true) {
     header('location: login.php');
+    exit;
 }
 
 if (!empty($_FILES['file']['name'])) {

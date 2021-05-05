@@ -76,6 +76,8 @@ $messages['password_prompt'] = "Please enter your password to confirm the operat
 $messages['encrypt'] = "Encrypt";
 $messages['decrypt'] = "Decrypt";
 $messages['confirm'] = "Confirm";
+$messages['empty_folder'] = "This folder is empty";
+$messages['download_folder'] = "Download as ZIP";
 
 // Photos
 $messages['photos'] = "Photos";
@@ -97,5 +99,8 @@ $messages['liked_songs'] = "Liked songs";
 $messages['shuffle'] = "Shuffle";
 $messages['songs'] = "Songs";
 $messages['albums'] = "Albums";
+$messages['artists'] = "Artists";
 $messages['upload_song'] = "Upload";
+$messages['invalid_music_file'] = "Error: The selected file is not an mp3 song.";
+$messages['now_playing'] = "Now Playing";
 ?>

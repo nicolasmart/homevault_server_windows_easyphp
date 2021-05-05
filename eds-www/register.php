@@ -4,7 +4,10 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] != true || $_SESSIO
     header('location: login.php');
 }
 include 'common_vars.inc';
-if(!isset($_COOKIE["language"])) setcookie("language", "en", time() + (86400 * 365), "/");
+if(!isset($_COOKIE["language"])) { 
+    setcookie("language", "en", time() + (86400 * 365), "/");
+    $_COOKIE["language"] = "en";
+}
 require('res/translations/' . $_COOKIE["language"] . '.php');
 
 $user_role = 1;
@@ -87,6 +90,10 @@ Deny from all
 </Files>";
                     fwrite($myfile, $txt);
                     fclose($myfile);
+
+                    $myfile = fopen("users/" . $username . '/music' . "/.htaccess", "w") or die("Unable to open file!");
+                    fwrite($myfile, $txt);
+                    fclose($myfile);
                     
                     // Account created; Redirect to login page
                     echo '<script>
@@ -114,6 +121,7 @@ Deny from all
 <head>
     <meta charset="UTF-8">
     <title><?php echo $messages['register']; ?></title>
+    <link rel="shortcut icon" type="image/x-icon" href="res/drawables/favicon.ico"/>
     <link rel="stylesheet" href="res/stylesheets/bootstrap.min.css">
     <link rel="stylesheet" href="res/stylesheets/main.css?v=3">
     <style type="text/css">

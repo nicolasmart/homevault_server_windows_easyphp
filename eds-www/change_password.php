@@ -4,7 +4,10 @@ if (!file_exists('common_vars.inc')) {
     exit;
 }
 include 'common_vars.inc';
-if(!isset($_COOKIE["language"])) setcookie("language", "en", time() + (86400 * 365), "/");
+if(!isset($_COOKIE["language"])) { 
+    setcookie("language", "en", time() + (86400 * 365), "/");
+    $_COOKIE["language"] = "en";
+}
 require('res/translations/' . $_COOKIE["language"] . '.php');
 session_start();
 ?>
@@ -13,6 +16,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <title><?php echo $messages['login']; ?> - HomeVault</title>
+    <link rel="shortcut icon" type="image/x-icon" href="res/drawables/favicon.ico"/>
     <link rel="stylesheet" href="res/stylesheets/bootstrap.min.css">
     <link rel="stylesheet" href="res/stylesheets/main.css?v=3">
     <style type="text/css">

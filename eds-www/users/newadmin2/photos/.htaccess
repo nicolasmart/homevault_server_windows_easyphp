@@ -1,0 +1,4 @@
+<IfModule alias_module>
+RewriteBase /
+Allow From All
+</IfModule>
